@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.main__section {
+  display: flex;
+}
+.left__side__section {
+  background-image: url("../images/bg-main-desktop.png");
+  flex: 1;
+  height: 100vh;
+}
+.right__side__section{
+  flex: 3;
+  height: 100vh;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.left__side__card{
+    background-image: url("../images/bg-card-front.png");
+    /* height: 23%;
+    width: 85%; */
+    height: 245px;
+    width: 447px;
+    margin-left: 40%;
+    margin-top: 50%;
+    border-radius: 4%;
+}
+.left__side__logo__div{
+    padding-left: 7%;
+    padding-top: 7%;
+    padding-bottom: 12%;
+}
+.left__side__card__details{
+    color: white;
+}
+.left__side__card__numbers{
+    margin-bottom: 3%;
+    margin-left: 5%;
+    font-size: 36px;
+}
+.left__side__card__name{
+    padding-left: 5%;
+    padding-right: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+.left__side__card__back{
+    color: white;
+    background-image: url("../images/bg-card-back.png");
+    /* height: 23%; */
+    /* width: 85%; */
+    height: 245px;
+    width: 447px;
+    margin-left: 60%;
+    margin-top: 8%;
+    border-radius: 4%;
+}
+.left__side__card__back__paragraph{
+    color: white;
+    font-size: 18px;
+}
+.cvc__position{
+    position: absolute;
+    left: 34%;
+    bottom: 32.8%;
+}
+.right__side__info{
+    margin-left: 20%;
+    height: 30vh;
+    width: 60%;
+    font-size: 25px;
+    color: rgba(1, 1, 82, 0.979);
+}
+.right__side__info > p{
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 3%;
+}
+.name__input{
+    width: 70%;
+    height: 10%;
+}
+.number__input{
+    width: 70%;
+    height: 10%;
+}
+.month__input{
+    width: 15%;
+    height: 10%;
+}
+.year__input{
+    width: 15%;
+    height: 10%;
+    margin-right: 7.8%;
+}
+.cvc__input{
+    width: 30%;
+    height: 10%;
+}
+.confirm__button{
+    width: 70%;
+    height: 18%;
+    margin-top: 5%;
+    color: white;
+    background-color: rgba(1, 1, 82, 0.979);
+    border-radius: 4%;
+}
