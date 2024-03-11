@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: gray;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.navbar {
+  height: 15vh;
+  width: 100vw;
+  display: flex;
+  justify-content: flex-end;
+}
+main {
+  height: 85vh;
+  width: 100vw;
+  display: flex;
+}
+.navbar > button {
+  width: 15%;
+  height: 30%;
+  color: red;
+  border: 1px solid red;
+}
+h1 {
+  color: rgb(2, 34, 175);
+  height: fit-content;
+  display: flex;
+  align-items: center;
+}
+.popup {
+  height: 30%;
+  width: 30%;
+  background-color: white;
+  padding: 5% 5%;
+  z-index: 1;
+  display: none;
+}
+.close {
+  float: right;
+  color: black;
+  font-size: 30px;
+  font-weight: bolder;
+  background-color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+.popup > p {
+  font-size: 25px;
+  background-color: white;
+}
+.popup > input {
+  width: 80%;
+  height: 50%;
+  background-color: white;
+}
+.Send__Button {
+  margin-top: 3%;
+  margin-left: 35%;
+  background-color: red;
+}
