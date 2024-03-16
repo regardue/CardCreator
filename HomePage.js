@@ -53,10 +53,73 @@ function validateHour() {
   return false;
 }
 
-viewShift.onclick = function () {
-  let shiftItems = JSON.parse(localStorage.getItem("ShiftStorage"));
-  (document.getElementById("viewShiftText").value = shiftItems[0].locatie),numarOreLucrate;
-};
 clear.onclick = function () {
   localStorage.removeItem("ShiftStorage");
 };
+
+function showUserShifts(sorted=false) {
+  let shifts
+  if(sorted==false){
+    shifts = JSON.parse(localStorage.getItem("ShiftStorage"));
+    
+  }
+  else{
+    shifts = sorted;
+  }
+ 
+  if (shifts && shifts.length > 0) {
+    let container = document.getElementById("viewShiftText");
+    container.innerHTML = "";
+
+    shifts.forEach(function (shift, index) {
+      let table = document.createElement("table");
+      // let header = table.createTHead();
+      let row = table.insertRow();
+      let keys = Object.keys(shift);
+      keys.forEach(function (key) {
+        let cell = row.insertCell();
+        cell.textContent = shift[key];
+      });
+
+      let deleteButton = document.createElement("button");
+      deleteButton.textContent = "X";
+      deleteButton.addEventListener("click", function () {
+        deleteShift(index);
+      });
+      row.appendChild(deleteButton);
+
+      container.appendChild(table);
+      if (index < shifts.length - 1) {
+        container.appendChild(document.createElement("hr"));
+      }
+    });
+  } else {
+    alert("No user shifts found in local storage.");
+  }
+}
+document.getElementById("viewShift").addEventListener("click", function () {
+  showUserShifts();
+});
+
+function deleteShift(index) {
+  let shifts = JSON.parse(localStorage.getItem("ShiftStorage"));
+  if (shifts && shifts.length > 0) {
+    shifts.splice(index, 1);
+    localStorage.setItem("ShiftStorage", JSON.stringify(shifts));
+    showUserShifts();
+  }
+}
+
+document.getElementById("sortAscending").addEventListener("click",sortShiftAscending);
+document.getElementById("sortDescending").addEventListener("click",sortShiftDescending);
+
+function sortShiftAscending(){
+  let shifts = JSON.parse(localStorage.getItem("ShiftStorage"));
+  shifts.sort((a,b) => a.numarOreLucrate-b.numarOreLucrate);
+  showUserShifts(shifts)
+}
+function sortShiftDescending(){
+  let shifts = JSON.parse(localStorage.getItem("ShiftStorage"));
+  shifts.sort((a,b) => b.numarOreLucrate-a.numarOreLucrate);
+  showUserShifts(shifts)
+}

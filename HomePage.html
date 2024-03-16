@@ -19,16 +19,19 @@
     </header>
     <main>
       <h1>WELCOME TO YOUR SCHEDULE</h1>
-      <br />
-      <div class="popup" id="popupShift">
+      <div class="buttons__place">
+        <button id="sortAscending" class="sort__button">Sort ascending</button>
+        <button id="sortDescending" class="sort__button">Sort descending</button>
+      </div>
+      <div class="popup__container"><div class="popup" id="popupShift">
         <span class="close" id="closeShift">X</span>
         <p id="locatie">Locatie</p>
         <input type="text" id="locatieInput" />
         <p id="numarOreLucrate">Numar ore lucrate</p>
         <input type="text" id="numarOreLucrateInput" /><br />
         <button id="sendButton" class="Send__Button">Send</button>
-      </div>
-      <textarea id="viewShiftText" cols="80" rows="10"></textarea>
+      </div></div>
+      <div class="text__area__container"><div class="textarea" id="viewShiftText"></div></div>
     </main>
   </body>
 </html>
