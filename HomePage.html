@@ -13,7 +13,7 @@
         <button id="addShift">Add shift</button>
         <button id="viewShift">View shifts</button>
         <button id="clear">Delete shifts</button>
-        <button>Hello "Username"</button>
+        <button id="usernameWelcome"></button>
         <button onclick="Logout()">Logout</button>
       </div>
     </header>
@@ -21,17 +21,23 @@
       <h1>WELCOME TO YOUR SCHEDULE</h1>
       <div class="buttons__place">
         <button id="sortAscending" class="sort__button">Sort ascending</button>
-        <button id="sortDescending" class="sort__button">Sort descending</button>
+        <button id="sortDescending" class="sort__button">
+          Sort descending
+        </button>
       </div>
-      <div class="popup__container"><div class="popup" id="popupShift">
-        <span class="close" id="closeShift">X</span>
-        <p id="locatie">Locatie</p>
-        <input type="text" id="locatieInput" />
-        <p id="numarOreLucrate">Numar ore lucrate</p>
-        <input type="text" id="numarOreLucrateInput" /><br />
-        <button id="sendButton" class="Send__Button">Send</button>
-      </div></div>
-      <div class="text__area__container"><div class="textarea" id="viewShiftText"></div></div>
+      <div class="popup__container">
+        <div class="popup" id="popupShift">
+          <span class="close" id="closeShift">X</span>
+          <p id="locatie">Locatie</p>
+          <input type="text" id="locatieInput" />
+          <p id="numarOreLucrate">Numar ore lucrate</p>
+          <input type="text" id="numarOreLucrateInput" />
+          <button id="sendButton" class="Send__Button">Send</button>
+        </div>
+      </div>
+      <div class="text__area__container">
+        <div class="textarea" id="viewShiftText"></div>
+      </div>
     </main>
   </body>
 </html>

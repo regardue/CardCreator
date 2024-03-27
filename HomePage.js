@@ -9,6 +9,11 @@ let sendButton = document.getElementById("sendButton");
 let viewShift = document.getElementById("viewShift");
 let clear = document.getElementById("clear");
 
+let storageData = JSON.parse(localStorage.getItem("storage"));
+let welcomeButton = document.getElementById("usernameWelcome");
+welcomeButton.innerText = "Welcome, " + storageData[0].email;
+
+
 addShift.onclick = function () {
   popupShift.style.display = "block";
 };
@@ -19,10 +24,8 @@ sendButton.onclick = function () {
   let locatie = document.getElementById("locatieInput");
   let numarOreLucrate = document.getElementById("numarOreLucrateInput");
   let shiftSavedData = new Shift(locatie.value, numarOreLucrate.value);
-  let confirmation = window.confirm(
-    "Are you sure you want to save your shift?"
-  );
-  if (confirmation) {
+  let confirmation = window.confirm("Are you sure you want to save your shift?");
+  if (confirmation, areInputsField()) {
     if (!validateHour(numarOreLucrate)) {
       return true;
     }
@@ -36,6 +39,7 @@ sendButton.onclick = function () {
     shiftString.push(shiftSavedData);
     localStorage.setItem("ShiftStorage", JSON.stringify(shiftString));
   }
+  else alert("Please complete both inputs")
   popupShift.style.display = "none";
 };
 
@@ -57,16 +61,14 @@ clear.onclick = function () {
   localStorage.removeItem("ShiftStorage");
 };
 
-function showUserShifts(sorted=false) {
-  let shifts
-  if(sorted==false){
+function showUserShifts(sorted = false) {
+  let shifts;
+  if (sorted == false) {
     shifts = JSON.parse(localStorage.getItem("ShiftStorage"));
-    
-  }
-  else{
+  } else {
     shifts = sorted;
   }
- 
+
   if (shifts && shifts.length > 0) {
     let container = document.getElementById("viewShiftText");
     container.innerHTML = "";
@@ -74,6 +76,7 @@ function showUserShifts(sorted=false) {
     shifts.forEach(function (shift, index) {
       let table = document.createElement("table");
       // let header = table.createTHead();
+      
       let row = table.insertRow();
       let keys = Object.keys(shift);
       keys.forEach(function (key) {
@@ -110,16 +113,29 @@ function deleteShift(index) {
   }
 }
 
-document.getElementById("sortAscending").addEventListener("click",sortShiftAscending);
-document.getElementById("sortDescending").addEventListener("click",sortShiftDescending);
+document
+  .getElementById("sortAscending")
+  .addEventListener("click", sortShiftAscending);
+document
+  .getElementById("sortDescending")
+  .addEventListener("click", sortShiftDescending);
 
-function sortShiftAscending(){
+function sortShiftAscending() {
   let shifts = JSON.parse(localStorage.getItem("ShiftStorage"));
-  shifts.sort((a,b) => a.numarOreLucrate-b.numarOreLucrate);
-  showUserShifts(shifts)
+  shifts.sort((a, b) => a.numarOreLucrate - b.numarOreLucrate);
+  showUserShifts(shifts);
 }
-function sortShiftDescending(){
+function sortShiftDescending() {
   let shifts = JSON.parse(localStorage.getItem("ShiftStorage"));
-  shifts.sort((a,b) => b.numarOreLucrate-a.numarOreLucrate);
-  showUserShifts(shifts)
+  shifts.sort((a, b) => b.numarOreLucrate - a.numarOreLucrate);
+  showUserShifts(shifts);
+}
+function areInputsField() {
+  let inputs = document.querySelectorAll("input");
+  for (i = 0; i < inputs.length; i++) {
+    if (inputs[i].value == "") {
+      return false;
+    }
+  }
+  return true;
 }

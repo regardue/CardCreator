@@ -2,11 +2,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: gray;
 }
 body {
   display: flex;
   flex-direction: column;
+  background: linear-gradient(to bottom right, #bdcf57, #7bfebc, #16346b);
 }
 .navbar {
   height: 15vh;
@@ -23,8 +23,8 @@ main {
 .navbar > button {
   width: 15%;
   height: 30%;
-  color: red;
-  border: 1px solid red;
+  color: rgb(0, 255, 255);
+  border: 1px solid rgb(16, 7, 145);
 }
 h1 {
   color: rgb(2, 34, 175);
@@ -33,9 +33,9 @@ h1 {
   align-items: center;
 }
 .popup {
-  height: fit-content;
-  width: fit-content;
-  background-color: white;
+  height: 20rem;
+  width: 20rem;
+  background-color: rgb(97, 12, 79);
   padding: 5% 5%;
   z-index: 1;
   display: none;
@@ -51,17 +51,24 @@ h1 {
 }
 .popup > p {
   font-size: 25px;
-  background-color: white;
+  background-color: rgb(97, 12, 79);
+  color: yellow;
+}
+.popup > span {
+  color: yellow;
+  background-color: rgb(97, 12, 79);
 }
 .popup > input {
-  width: 80%;
-  height: 50%;
-  background-color: white;
+  width: 90%;
+  height: 30%;
+  background-color: rgb(25, 109, 165);
+  color: yellow;
 }
 .Send__Button {
-  margin-top: 3%;
-  margin-left: 35%;
-  background-color: red;
+  margin-top: 5%;
+  /* margin-left: 35%; */
+  background-color: rgb(25, 109, 165);
+  width: 90%;
 }
 .textarea {
   width: fit-content;
@@ -69,10 +76,13 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  color: blue;
 }
 .sort__button {
   width: 10%;
   height: 25%;
+  color: rgb(0, 255, 255);
+  border: 1px solid rgb(16, 7, 145);
 }
 .buttons__place {
   height: 15%;
@@ -95,4 +105,12 @@ h1 {
   transform: translate(-50%, -50%);
   flex-wrap: wrap;
   z-index: 99999;
+  height: fit-content;
+}
+button {
+  background-color: rgb(137, 15, 238);
+}
+table {
+  border: 2px solid blue;
+  padding: 3px;
 }
